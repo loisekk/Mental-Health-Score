@@ -20,7 +20,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 ASSETS = Path("assets")
 ASSETS.mkdir(exist_ok=True)
 
-# ---------- theme ----------
+
 BG, PANEL, INK, MUTED = "#0d1117", "#161b22", "#e6edf3", "#8b949e"
 CYAN, PURPLE, GREEN, ORANGE, PINK, YELLOW = (
     "#58a6ff", "#bc8cff", "#3fb950", "#f0883e", "#ff7b72", "#e3b341")
@@ -40,9 +40,7 @@ RESULTS = pd.DataFrame({
 })
 
 
-# =====================================================================
 # 1. 2D architecture
-# =====================================================================
 def box(ax, x, y, w, h, title, sub, color):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02,rounding_size=0.12",
                                 fc=PANEL, ec=color, lw=2.2))
@@ -93,9 +91,7 @@ def architecture_2d():
     plt.close(fig)
 
 
-# =====================================================================
 # 2. 3D isometric layered architecture
-# =====================================================================
 def slab(ax, x, y, z, w, d, h, color, alpha=0.92):
     v = np.array([[x, y, z], [x + w, y, z], [x + w, y + d, z], [x, y + d, z],
                   [x, y, z + h], [x + w, y, z + h], [x + w, y + d, z + h], [x, y + d, z + h]])
@@ -150,9 +146,8 @@ def architecture_3d():
     plt.close(fig)
 
 
-# =====================================================================
 # 3. Model comparison + overfitting gap
-# =====================================================================
+
 def comparison_charts():
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
     colors = [MUTED, GREEN, CYAN]
